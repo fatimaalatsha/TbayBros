@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TBay Bros - Your Trusted Handymen</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #3498db;
+            --dark-blue: #2980b9;
+            --primary-green: #27ae60;
+            --accent-orange: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-orange);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 150px 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-blue);
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background-color: #f9f9f9;
+        }
+        
+        .slider-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .slider {
+            display: flex;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .slide {
+            min-width: 100%;
+            display: flex;
+        }
+        
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+        }
+        
+        .before-after img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .before-after h4 {
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+        
+        /* About Us Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: #f9f9f9;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--primary-blue);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links li {
+            margin-right: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .about-content, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="home">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="/logo.png" alt="TBay Bros Logo">
+                    <div class="logo-text">TBay Bros</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>TBay Bros – Your Trusted Handymen for Every Job!</h1>
+                <p>Reliable, skilled, and always ready to help. No job is too small!</p>
+                <a href="#contact" class="btn">Get a Free Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>General Maintenance</h3>
+                    <p>Keep your home in top condition with our regular maintenance services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Carpentry & Woodwork</h3>
+                    <p>Custom carpentry solutions for all your wooden fixtures and furniture needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌿</div>
+                    <h3>Garden & Outdoor Maintenance</h3>
+                    <p>Professional garden care and outdoor space maintenance services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏡</div>
+                    <h3>Cabin Installation</h3>
+                    <p>Expert installation of prefab cabins and garden structures.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Painting & Wall Fixes</h3>
+                    <p>Quality painting services and wall repair for your home or office.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Small Construction Fixes</h3>
+                    <p>Quick and reliable fixes for minor construction issues.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <p>Need something specific? Just ask!</p>
+                <a href="#contact" class="btn" style="margin-top: 20px;">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Our Work</h2>
+            
+            <!-- Slider -->
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <div class="before-after">
+                            <div>
+                                <img src="/971f5f84-61ae-4c6e-9f2d-cafc21706590.jpg" alt="Before">
+                                <h4>Before</h4>
+                            </div>
+                            <div>
+                                <img src="/2e60d683-eab9-48e1-b7d9-ec442c05e259.jpg" alt="After">
+                                <h4>After</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <h3 style="text-align: center; margin-bottom: 30px;">What Our Customers Say</h3>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>"The TBay Bros team did an amazing job with our garden shed. Professional, punctual, and precise. Highly recommended!"</p>
+                    <div class="testimonial-author">- Sarah Johnson</div>
+                </div>
+                <div class="testimonial">
+                    <p>"I've used TBay Bros for multiple projects around my house. They're always reliable and do quality work. My go-to handymen!"</p>
+                    <div class="testimonial-author">- Mike Thompson</div>
+                </div>
+                <div class="testimonial">
+                    <p>"Quick response, fair prices, and excellent work. The team installed our cabin quickly and with great attention to detail."</p>
+                    <div class="testimonial-author">- Emily Parker</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Meet the TBay Bros Team</h2>
+            <div class="about-content">
+                <div>
+                    <p>TBay Bros is a team of skilled handymen with over 15 years of combined experience in home maintenance, carpentry, and small construction projects. We started as a small family business and have grown through word-of-mouth and our reputation for quality work.</p>
+                    <p>Our mission is simple: provide reliable, high-quality handyman services with a personal touch. We take pride in our work and treat every home like it's our own.</p>
+                    <p>From fixing a leaky faucet to installing a garden cabin, no job is too small or too big for our team. We're fully insured, licensed, and committed to exceeding your expectations.</p>
+                </div>
+                <img src="/hasson.png" alt="TBay Bros Team" class="about-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service">
+                                <option value="">Select a service</option>
+                                <option value="maintenance">General Maintenance</option>
+                                <option value="carpentry">Carpentry & Woodwork</option>
+                                <option value="garden">Garden & Outdoor Maintenance</option>
+                                <option value="cabin">Cabin Installation</option>
+                                <option value="painting">Painting & Wall Fixes</option>
+                                <option value="construction">Small Construction Fixes</option>
+                                <option value="other">Other (please specify)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3>Phone & WhatsApp</h3>
+                            <p>807 6212 534</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info.tbaybros@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🗺️</div>
+                        <div>
+                            <h3>Service Area</h3>
+                            <p>Thunder Bay and surrounding areas within 50km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d716075.7843709864!2d-89.89988674928644!3d48.40158682732009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4d5921774c16e98d%3A0x3d0557348f1d8b74!2sThunder%20Bay%2C%20ON!5e1!3m2!1sen!2sca!4v1743146085212!5m2!1sen!2sca" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">TBay Bros</div>
+                    <p>Your Helping Hands Next Door!</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2025 TBay Bros. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
